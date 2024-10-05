@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demure - Makeup E-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="notification-popup" id="notificationPopup">
+        <p>Item has been added to your cart!</p>
+        <button onclick="closeNotification()">Close</button>
+    </div>
+    <!-- Background Video Container -->
+    <div class="header-container">
+        <video class="header-background" src="promo-video.mp4" autoplay muted loop></video>
+    
+        <!-- Header Section -->
+        <header>
+            <div class="logo">Demure</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="new-in.html">New In</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="consult.html">Consult</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <!-- Search bar with chic icon -->
+            <form action="search-results.html" method="GET" class="search-bar">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit"><img src="search-icon.png" alt="Search Icon"></button>
+            </form>
+
+            <a href="wishlist.html" class="wishlist-icon"><img src="love.png" alt="Wishlist Icon"></a>
+            
+            <a href="profile.html" class="profile-icon"><img src="user.png" alt="Profile Icon"></a>
+
+            <!-- Custom Cart Icon -->
+            <div class="cart-container">
+                <div class="cart-icon">
+                    <a href="your-cart-page.html">
+                    <img src="cart-icon.png" alt="Cart Icon">
+                    <div id="cart-count">0</div> <!-- Initial count can be set dynamically -->
+                    </a>
+                </div>
+            </div>            
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-text-container">
+        <h1>Welcome to Demure</h1>
+        <p>Discover the beauty within.</p>
+    </section>
+
+    <section class="image-text-container">
+        <h1>New In</h1>
+        <a href="new-in.html" class="see-all-link">See All</a>
+    </section>
+
+<!-- Image Slider Section with Previous/Next buttons -->
+<section class="image-slider">
+    <button class="prev-btn">❮</button>
+    <div class="slider-container">
+        <div class="product">
+            <a href="Bisou-Balm.html">
+            <img src="image/Bisou_Balm_Shade 4.webp" alt="Bisou Balm">
+            <div class="product-details">
+                <p class="product-name">Bisou Balm</p>
+                <p class="product-price">$19.00</p>
+                <p class="product-rating">★★★★☆ (4.5)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="EyeshadowStick.html">
+            <img src="image/EyeshadowStick.webp" alt="Eyeshadow Stick">
+            <div class="product-details">
+                <p class="product-name">Eyeshadow Stick</p>
+                <p class="product-price">$25.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="lash-mascara.html">
+            <img src="image/lashMascara.webp" alt="Lash Mascara">
+            <div class="product-details">
+                <p class="product-name">Lash Mascara</p>
+                <p class="product-price">$29.00</p>
+                <p class="product-rating">★★★★☆ (4.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="voluminising-Mascara.html">
+            <img src="image/Voluminising_Mascara.webp" alt="Voluminising Mascara">
+            <div class="product-details">
+                <p class="product-name">Voluminising Mascara</p>
+                <p class="product-price">$29.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="bisou-blush-creme.html">
+            <img src="image/BisouBlushBlushCreme.webp" alt="Bisou Blush Creme">
+            <div class="product-details">
+                <p class="product-name">Bisou Blush Creme</p>
+                <p class="product-price">$25.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="concealer.html">
+            <img src="image/concealer.webp" alt="Liquid Concealer">
+            <div class="product-details">
+                <p class="product-name">Liquid Concealer</p>
+                <p class="product-price">$25.00</p>
+                <p class="product-rating">★★★★☆ (4.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="Serum-Foundation.html">
+            <img src="image/Serum-Foundation.webp" alt="Serum Foundation">
+            <div class="product-details">
+                <p class="product-name">Serum Foundation</p>
+                <p class="product-price">$54.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="Semi-Matte-Lipstick.html">
+            <img src="image/Semi-Matte-Lipstick.webp" alt="Semi Matte Lipstick">
+            <div class="product-details">
+                <p class="product-name">Semi-Matte Lipstick</p>
+                <p class="product-price">$24.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="mineral-powder-foundation.html">
+            <img src="image/Mineral-Powder-Foundation.webp" alt="Mineral Powder Foundation">
+            <div class="product-details">
+                <p class="product-name">Mineral Powder Foundation</p>
+                <p class="product-price">$31.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="tinted-Lip-Oil.html">
+            <img src="image/Tinted Lip Gloss.webp" alt="Tinted Lip Gloss">
+            <div class="product-details">
+                <p class="product-name">Tinted Lip Gloss</p>
+                <p class="product-price">$29.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </a>
+        </div>
+    </div>
+    <button class="next-btn">❯</button>
+</section>
+<!-- Our Story Section -->
+<section class="our-story-section">
+    <div class="story-content">
+        <div class="story-image">
+            <img src="image/side-view-women-working-as-wedding-planners.jpg" alt="Our Story Image">
+        </div>
+        <div class="story-text">
+            <h2> What Makes Us<span class="special-font"> Demure</span> </h2>
+            <p>
+                At Demure, we are more than a beauty brand. We are a community committed to empowering individuals to celebrate their unique beauty. Our carefully curated products are designed to enhance, not hide, what makes you, you.
+            </p>
+            <p>
+                From day one, we’ve been on a mission to redefine beauty standards and encourage inclusivity. Every product we create is an ode to self-expression, built with passion, quality, and love.
+            </p>
+            <a href="our-story.html" class="learn-more-btn">Our Story</a>
+        </div>
+    </div>
+</section>
+<!-- Shop Our Products Section -->
+<section id="shop-by-category">
+    <h2>Shop Our <span class="special-font">Categories</span></h2>
+
+    <!-- Category Row -->
+    <div class="category-row">
+
+        <!-- Eyes Section -->
+        <div class="category-image">
+            <a href="categorypage.php" onclick="setCategory('eyes')">
+                <img src="image/beautiful-woman-with-black-eyeliner.jpg" alt="Eyes Products">
+                <div class="overlay">
+                    <h3>Eyes</h3>
+                </div>
+            </a>
+        </div>
+
+        <!-- Lips Section with Video -->
+        <div class="category-image">
+            <a href="categorypage.php" onclick="setCategory('lips')">
+                <video autoplay muted loop playsinline>
+                    <source src="image/lipvideo.mp4" type="video/mp4">
+                </video>
+                <div class="overlay">
+                    <h3>Lips</h3>
+                </div>
+            </a>
+        </div>
+
+        <!-- Face Section -->
+        <div class="category-image">
+            <a href="categorypage.php" onclick="setCategory('face')">
+                <img src="image/medium-shot-korean-woman-holding-mascara.jpg" alt="Face Products">
+                <div class="overlay">
+                    <h3>Face</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<section class="skin-consultation">
+    <video class="background-video" src="consulting-video3.mp4" autoplay muted loop></video>
+    <div class="overlay"></div>
+    <div class="consultation-content">
+        <div class="consultation-text">
+            <h3>Your Skin Consultation</h3>
+            <p>
+                Discover personalized skincare solutions with our free skin consultation service.
+                Consult today to start your journey to healthier, glowing skin.
+            </p>
+            <a href="consult.html" class="consultation-btn">Consult with us</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- Column 1: About Demure -->
+        <div class="footer-column">
+            <h4>About Demure</h4>
+            <p>
+                Discover premium beauty products with Demure. Our exclusive range is designed to enhance your natural beauty, combining elegance with quality.
+            </p>
+        </div>
+
+        <!-- Column 2: Help -->
+        <div class="footer-column">
+            <h4>Help</h4>
+            <div class="footer-link">
+                <li><a href="customer-service.html">Customer Service</a></li>
+                <li><a href="shipping-info.html">Shipping Info</a></li>
+                <li><a href="returns-exchnages.html">Returns & Exchanges</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+            </div>
+        </div>
+
+        <!-- Column 3: Email Signup -->
+        <div class="footer-column">
+            <h4>Sign Up for Email</h4>
+            <p>Be the first to know about new arrivals, exclusive offers, and more!</p>
+            <form class="email-signup" action="#" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="social-media-container">
+        <a href="https://facebook.com" target="_blank">
+            <img src="icons/facebook (1).png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="image/instagram (1).png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="icons/twitter-icon.png" alt="Twitter" class="social-icon">
+        </a>
+        <a href="https://pinterest.com" target="_blank">
+            <img src="icons/social.png" alt="Pinterest" class="social-icon">
+        </a>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Demure. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function setCategory(category) {
+        // Save category to localStorage
+        localStorage.setItem('category', category);
+    }
+</script>
+<script>
+const sliderContainer = document.querySelector('.slider-container');
+const products = document.querySelectorAll('.product');
+const totalProducts = products.length;
+const productWidth = products[0].offsetWidth + 16; 
+let currentIndex = 0;
+const maxScrollIndex = 2; 
+
+/* Scroll Function */
+function scrollToNext() {
+    if (currentIndex < maxScrollIndex) { 
+        currentIndex++;
+        sliderContainer.style.transform = `translateX(-${currentIndex * productWidth * 2}px)`; 
+    }
+   
+    if (currentIndex === maxScrollIndex) {
+        document.querySelector('.next-btn').disabled = true;
+    }
+}
+
+function scrollToPrev() {
+    if (currentIndex > 0) { 
+        currentIndex--;
+        sliderContainer.style.transform = `translateX(-${currentIndex * productWidth * 2}px)`; 
+    }
+    
+    if (currentIndex < maxScrollIndex) {
+        document.querySelector('.next-btn').disabled = false;
+    }
+}
+
+document.querySelector('.next-btn').addEventListener('click', scrollToNext);
+document.querySelector('.prev-btn').addEventListener('click', scrollToPrev);
+
+</script>
+<script>
+
+    let cartCount = 0;
+
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartCountElement = document.getElementById('cart-count');
+
+    function showNotification() {
+        const notification = document.getElementById('notificationPopup'); 
+        notification.style.bottom = '20px'; 
+        
+        
+        setTimeout(() => {
+            notification.style.bottom = '-100px'; 
+        }, 3000);
+    }
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+           
+            event.preventDefault();
+            cartCount++;
+            cartCountElement.textContent = cartCount;
+            showNotification();
+        });
+    });
+</script>
+
+     </body>
+     </html>

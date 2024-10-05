@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Demure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Brandon+Grotesque:wght@400;700&family=Chronicle+Display:wght@400;700&family=Din:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* styles.css */
+
+/* General Styles */
+body {
+    font-family: 'Brandon Grotesque', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+/* General Header Styling */
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.075);
+    border-bottom: 1px solid #e0e0e000;
+    z-index: 1;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-family: 'Breathney';
+    color: #552f42;
+    font-weight: bold;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.88rem;
+    padding: 0.5rem 1rem;
+    font-family: 'Brandon Grotesque', sans-serif;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: #e1abc4;
+    border-bottom: 2px solid #ffb0c7;
+}
+
+/* Header Icons */
+.header-icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 25px;
+}
+
+.header-icons a {
+    margin-left: 20px;
+}
+
+.header-icons img {
+    width: 22px;
+    height: 22px;
+}
+
+/* Search Bar */
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    padding: 5px 30px 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #efefef1e;
+    border-radius: 4px;
+    background-color: #1c141422;
+}
+
+.search-bar button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    width: 20px;
+    height: 20px;
+    margin: 0.4rem 0.5rem;
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
+    padding-right: 20px;
+}
+
+.cart-icon img {
+    width: 22px;
+    height: 22px;
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    margin-right: 15px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 1px 5px;
+}
+
+/* Profile Icon */
+.profile-icon img {
+    width: 22px;
+    height: 22px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .header-icons {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    /* Add a toggle button for nav */
+    .nav-toggle {
+        display: block;
+        cursor: pointer;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1rem; 
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .header-icons img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+/* Mission Section */
+.mission {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+.mission h2{
+    font-family: 'Breathney';
+    font-size: 40px;
+}
+
+.mission-text {
+    flex: 1;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.mission-image {
+    flex: 1;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Move down slightly */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Add transition */
+}
+
+.mission-image img {
+    max-width: 80%;
+    border-radius: 1200px;
+}
+
+.mission-text.visible,
+.mission-image.visible { /* Add visible class for the image */
+    opacity: 1; /* Make it visible */
+    transform: translateY(0); /* Reset position */
+}
+@media screen and (max-width: 768px) {
+    .mission {
+        flex-direction: column;
+    }
+
+    .mission-text, .mission-image {
+        text-align: center;
+        padding: 20px;
+    }
+}
+
+
+/* Milestones Section */
+.milestones {
+    padding: 60px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: 'Breathney';
+}
+
+
+.special-font {
+    font-family: 'Breathney';
+    font-size: 2.3rem;
+}
+.quote-text {
+    font-family: 'Ogg Medium';
+    color: #420c1d;
+    letter-spacing: 0.8px;
+    font-size: 2.9rem;
+    line-height: 2.75rem;
+    margin-bottom: 50px;
+    margin-top: .975rem
+}
+
+
+.milestones-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.milestone-item {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestone-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.milestone-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.milestone-year {
+    font-weight: bold;
+    font-size: 1.8em;
+    color: #e29578;
+    margin-bottom: 15px;
+}
+
+.milestone-item p {
+    font-size: 1.2em;
+    color: #555;
+    font-family: 'Brandon Grotesque';
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .milestones-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px;
+    background-color: #fff;
+    text-align: center;
+    font-family: 'Brandon Grotesque';
+}
+
+.testimonials h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+    position: relative;
+    font-family: 'Breathney';
+}
+
+.testimonials h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background-color: #e29578;
+    display: block;
+    margin: 10px auto;
+}
+
+.testimonial-carousel {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0 20px;
+}
+
+.testimonial {
+    min-width: 320px;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.customer-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.customer-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+blockquote {
+    font-style: italic;
+    font-size: 1.2em;
+    color: #555;
+    margin: 0 0 15px;
+    position: relative;
+}
+
+.customer-name {
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for a cleaner look */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-carousel {
+        flex-direction: column;
+    }
+
+    .testimonial {
+        margin: 0 auto;
+    }
+}
+
+
+/* Call to Action Section */
+.cta {
+    text-align: center;
+    padding: 40px;
+    background-color: #f7d0d0;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background-color: white;
+    color: #f2a5a5;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #431919;
+    color: white;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #fff5f181; /* Soft light beige */
+    margin-top: 80px;
+    padding: 20px;
+    font-family: 'Brandon Grotesque Thin';
+    box-sizing: border-box;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.footer-container p{
+    font-family: 'Brandon Grostesque Thin';
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+.footer-column {
+    flex: 1;
+    padding: 0 ;
+    list-style: none;
+    font-family: 'Brandon Grotesque Light';
+    font-size: 0.9rem;
+}
+.social-media-container {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    margin-top: 20px; /* Space above the icons */
+}
+
+.social-icon {
+    width: 30px; /* Set a width for the icons */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px; /* Space between icons */
+    transition: transform 0.3s; /* Optional: Add a hover effect */
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+.footer-column h4 {
+    font-family: 'Brandon Grotesque Light';
+    font-size: 1.1rem;
+    color: #493238;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.footer-column p {
+    font-family: 'Brandon Grostesque Thin';
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #341212;
+}
+.footer-link{
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.footer-link a{
+    font-family: 'Brandon Grotesque';
+    text-decoration: none;
+    color: #351616;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+}
+
+.footer-link a:hover{
+    border-bottom: 1.5px solid #ff96b4;
+}
+.email-signup {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-signup input[type="email"] {
+    padding: 10px;
+    width: 94%;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #fff1f1;
+    color: #361818;
+    font-size: 0.95rem;
+}
+
+.email-signup button {
+  padding: 15px 30px;
+  background-color: #29111b;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  color: #fffcfc;
+  justify-content: center;
+}
+
+.email-signup button:hover {
+    background-color: #ffc7d6;
+    color: #552f42;
+}
+
+.footer-bottom {
+    font-family: 'Brandon Grotesque';
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Demure</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="new-in.html">New In</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="consult.html">Consult</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <!-- Search bar with chic icon -->
+        <form action="search-results.html" method="GET" class="search-bar">
+            <input type="text" name="query" placeholder="Search...">
+            <button type="submit"><img src="search-icon.png" alt="Search Icon"></button>
+        </form>
+
+        <a href="wishlist.html" class="wishlist-icon"><img src="love.png" alt="Wishlist Icon"></a>
+        
+        <a href="profile.html" class="profile-icon"><img src="user.png" alt="Profile Icon"></a>
+
+        <!-- Custom Cart Icon -->
+        <div class="cart-container">
+            <div class="cart-icon">
+                <a href="your-cart-page.html">
+                <img src="cart-icon.png" alt="Cart Icon">
+                <div id="cart-count">0</div> <!-- Initial count can be set dynamically -->
+                </a>
+            </div>
+        </div>            
+        </div>
+    </header>
+    
+    <!-- Our Mission Section -->
+    <section class="mission">
+        <div class="mission-text">
+            <h2>Our Mission</h2>
+            <p>At Demure, we believe in celebrating individuality and enhancing natural beauty.</p>
+            <p>At Demure, we are passionate about redefining beauty. We believe that beauty is not a standard, but a spectrum. Our mission is to empower individuals by providing high-quality, inclusive beauty products that celebrate every unique story.</p>
+
+            <p>We commit to inclusivity by offering a diverse range of products that cater to all skin tones and types, ensuring everyone feels seen and beautiful. Our dedication to sustainability drives us to adopt environmentally friendly practices, from our ingredients to our packaging, minimizing our impact on the planet.</p>
+
+            <p>We strive to foster a supportive community where everyone can express themselves freely and confidently. Our products undergo rigorous testing to meet the highest standards of safety and efficacy.</p>
+
+            <p>Join us on this journey of beauty and empowerment, and let’s celebrate our uniqueness together!</p>
+        </div>
+        <div class="mission-image">
+            <img src="image/side-view-woman-working-indoors.jpg" alt="Our Mission" />
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+<section class="milestones">
+    <h2>Our Milestones</h2>
+    <div class="milestones-container">
+        <div class="milestone-item">
+            <img src="image/milestone1.jpg" alt="Foundation Image">
+            <div class="milestone-year">2018</div>
+            <p>Founded with a vision to create inclusive beauty products.</p>
+        </div>
+        <div class="milestone-item">
+            <img src="image/milestone2.jpg" alt="Product Expansion Image">
+            <div class="milestone-year">2020</div>
+            <p>Expanded our product line to cater to diverse skin tones.</p>
+        </div>
+        <div class="milestone-item">
+            <img src="image/milestone3.jpg" alt="Eco-Friendly Packaging">
+            <div class="milestone-year">2022</div>
+            <p>Launched our first eco-friendly packaging initiative.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Testimonials Section -->
+<section class="testimonials">
+    <p class="quote-text">What Our <span class="special-font">Customer</span> Say.</p>
+    <div class="testimonial-carousel">
+        <div class="testimonial">
+            <div class="customer-image">
+                <img src="image/review2.avif" alt="Emily's Image">
+            </div>
+            <blockquote>
+                <p>"Demure's products have changed my life!"</p>
+            </blockquote>
+            <p class="customer-name">- Emily</p>
+        </div>
+        <div class="testimonial">
+            <div class="customer-image">
+                <img src="image/review1.avif" alt="Sarah's Image">
+            </div>
+            <blockquote>
+                <p>"I love the inclusive range and quality!"</p>
+            </blockquote>
+            <p class="customer-name">- Sarah</p>
+        </div>
+        <div class="testimonial">
+            <div class="customer-image">
+                <img src="image/review4.jpeg" alt="Hayat's Image">
+            </div>
+            <blockquote>
+                <p>"I tried the product and now alhamdullilah i my skin is so moist and healthy.!"</p>
+            </blockquote>
+            <p class="customer-name">- Hayat</p>
+        </div>
+        <div class="testimonial">
+            <div class="customer-image">
+                <img src="image/lengthening-mascara-profile2.webp" alt="Michaela's Image">
+            </div>
+            <blockquote>
+                <p>"Best beauty brand ever!"</p>
+            </blockquote>
+            <p class="customer-name">- Michaela</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <h2>Join Our Community</h2>
+        <a href="signup.html" class="cta-button">Sign Up Now</a>
+    </section>
+
+    <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- Column 1: About Demure -->
+        <div class="footer-column">
+            <h4>About Demure</h4>
+            <p>
+                Discover premium beauty products with Demure. Our exclusive range is designed to enhance your natural beauty, combining elegance with quality.
+            </p>
+        </div>
+
+        <!-- Column 2: Help -->
+        <div class="footer-column">
+            <h4>Help</h4>
+            <div class="footer-link">
+                <li><a href="customer-service.html">Customer Service</a></li>
+                <li><a href="shipping-info.html">Shipping Info</a></li>
+                <li><a href="returns-exchnages.html">Returns & Exchanges</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+            </div>
+        </div>
+
+        <!-- Column 3: Email Signup -->
+        <div class="footer-column">
+            <h4>Sign Up for Email</h4>
+            <p>Be the first to know about new arrivals, exclusive offers, and more!</p>
+            <form class="email-signup" action="#" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="social-media-container">
+        <a href="https://facebook.com" target="_blank">
+            <img src="icons/facebook (1).png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="image/instagram (1).png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="icons/twitter-icon.png" alt="Twitter" class="social-icon">
+        </a>
+        <a href="https://pinterest.com" target="_blank">
+            <img src="icons/social.png" alt="Pinterest" class="social-icon">
+        </a>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Demure. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    // script.js
+
+document.addEventListener("DOMContentLoaded", function () {
+    const textSections = document.querySelectorAll('.mission-text');
+    const imageSections = document.querySelectorAll('.mission-image');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing after animation
+            }
+        });
+    });
+
+    textSections.forEach(section => {
+        observer.observe(section);
+    });
+    
+    imageSections.forEach(section => {
+        observer.observe(section); // Observe the image section as well
+    });
+});
+
+</script>
+</html>

@@ -1,0 +1,1111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demure - Makeup E-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Video Container -->
+    <div class="header-container">
+        <video class="header-background" src="promo-video.mp4" autoplay muted loop></video>
+    
+        <!-- Header Section -->
+        <header>
+            <div class="logo">Demure</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#new-in">New In</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <img src="search-icon.png" alt="Search" class="icon">
+                <img src="cart-icon.png" alt="Cart" class="icon">
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-text-container">
+        <h1>Welcome to Demure</h1>
+        <p>Discover the beauty within.</p>
+    </section>
+
+    <section class="image-text-container">
+        <h1>New Collection</h1>
+    </section>
+
+<!-- Image Slider Section with Previous/Next buttons -->
+<section class="image-slider">
+    <button class="prev-btn">❮</button>
+    <div class="slider-container">
+        <div class="product">
+            <a href="Bisou-Balm.html">
+            <img src="image/Bisou_Balm_Shade 4.webp" alt="Bisou Balm">
+            <div class="product-details">
+                <p class="product-name">Bisou Balm</p>
+                <p class="product-price">$19.99</p>
+                <p class="product-rating">★★★★☆ (4.5)</p>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product-page.html">
+            <img src="EyeshadowStick.webp" alt="Eyeshadow Stick">
+            <div class="product-details">
+                <p class="product-name">Eyeshadow Stick</p>
+                <p class="product-price">$25.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product-page.html">
+            <img src="lashMascara.webp" alt="Lash Mascara">
+            <div class="product-details">
+                <p class="product-name">Lash Mascara</p>
+                <p class="product-price">$29.50</p>
+                <p class="product-rating">★★★★☆ (4.0)</p>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product-page.html">
+            <img src="matteeyeshadow.jpg" alt="Matte Eyeshadow">
+            <div class="product-details">
+                <p class="product-name">Matte Eyeshadow</p>
+                <p class="product-price">$15.99</p>
+                <p class="product-rating">★★★☆☆ (3.5)</p>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product-page.html">
+            <img src="BisouBlushBlushCreme.webp" alt="Bisou Blush Creme">
+            <div class="product-details">
+                <p class="product-name">Bisou Blush Creme</p>
+                <p class="product-price">$25.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product-page.html">
+            <img src="EyeshadowStick.webp" alt="Eyeshadow Stick">
+            <div class="product-details">
+                <p class="product-name">Eyeshadow Stick</p>
+                <p class="product-price">$25.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+            </div>
+        </a>
+        </div>
+        <div class="product">
+            <a href="product-page.html">
+            <img src="eyeshadow.jpg" alt="Eyeshadow Palette">
+            <div class="product-details">
+                <p class="product-name">Eyeshadow Palette</p>
+                <p class="product-price">$20.00</p>
+                <p class="product-rating">★★★★★ (5.0)</p>
+            </div>
+        </a>
+        </div>
+    </div>
+    <button class="next-btn">❯</button>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Demure. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
+                <li><a href="#terms-conditions">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+<script>
+   const sliderContainer = document.querySelector('.slider-container');
+const products = document.querySelectorAll('.product');
+const totalProducts = products.length;
+const productWidth = products[0].offsetWidth + 16; // Account for the margin between products
+let currentIndex = 0;
+let interval;
+
+/* Scroll Function */
+function scrollToNext() {
+    currentIndex++;
+    if (currentIndex >= totalProducts) {
+        currentIndex = 0; // Infinite scrolling
+    }
+    sliderContainer.style.transform = `translateX(-${currentIndex * productWidth}px)`; 
+}
+
+function scrollToPrev() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = totalProducts - 1; // Infinite scrolling backward
+    }
+    sliderContainer.style.transform = `translateX(-${currentIndex * productWidth}px)`; 
+}
+
+/* Automatic Scrolling */
+function startAutoScroll() {
+    interval = setInterval(scrollToNext, 3000); // Auto scroll every 3 seconds
+}
+
+/* Stop automatic scrolling on mouse hover */
+function stopAutoScroll() {
+    clearInterval(interval);
+}
+
+/* Event Listeners */
+document.querySelector('.next-btn').addEventListener('click', scrollToNext);
+document.querySelector('.prev-btn').addEventListener('click', scrollToPrev);
+
+/* Mouse hover stops auto-scroll */
+sliderContainer.addEventListener('mouseenter', stopAutoScroll);
+sliderContainer.addEventListener('mouseleave', startAutoScroll);
+
+/* Start automatic scrolling on page load */
+startAutoScroll();
+</script>
+</boy>
+</html>
+
+@font-face {
+    font-family: 'Formera Light';
+    src: url('fonts/Formera-Light.woff2') format('woff2'),
+         url('fonts/Formera-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+        font-family: 'Playfair Display SemiBold';
+        src: url('fonts/Playfair Display/static/PlayfairDisplay-SemiBold.ttf');
+        font-weight: normal;
+    font-style: normal;
+    }
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+         
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlayfairDisplay-Italic';
+    src: url('fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Garamond';
+    src: url('fonts/Garamond/EBGaramond-VariableFont_wght.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('fonts/Brandon Grotesque/HvDTrial_Brandon_Grotesque_regular-BF64a625c9311e1.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Garamond Medium';
+    src: url('fonts/Garamond/static/EBGaramond-Medium.ttf');
+   
+}
+@font-face {
+    font-family: 'Chronical Display Roman';
+    src: url('fonts/Chronicle\ Display/#5e3647');
+}
+
+body {
+    font-family: 'Playfair Display' , sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f5f2; /* Soft light beige */
+    color: #333333; /* Dark gray */
+    position: relative; /* Ensure proper stacking context */
+}
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.075); /* Semi-transparent white */
+    border-bottom: 1px solid #e0e0e000; /* Soft gray border */
+    z-index: 1; /* Ensure header content is above the video */
+}
+
+.header-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Behind header content */
+}
+
+/* Overlay on the video for better text readability */
+.header-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+    z-index: 0; /* Ensure it's behind text */
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust height based on your design */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -5rem 0 2rem 0;
+    background-color: rgba(255, 255, 255, 0); /* Semi-transparent white for better text visibility */
+}
+
+.image-text-container {
+    margin: 0;
+    font-family: 'Chronical Display';
+    font-size: 1rem;
+    color: #59414c; /* Dark gray */
+}
+
+.hero-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0; /* Add padding to create space between video and text */
+    background-color: #ffffffef; /* Solid white background */
+    margin-top: -4px; /* Reduce the gap between video and text */
+}
+
+.hero-text-container h1 {
+    margin: 0;
+    font-family: 'PlayfairDisplay-Italic', sans-serif;
+    font-size: 2.6rem;
+    color: #862a4f; /* Dark gray */
+}
+
+.hero-text-container p {
+    font-family: 'Playfair Display';
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #666666; /* Lighter gray for contrast */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif ;
+    font-weight: bold;
+    color: #552f42; /* Soft dark gray */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center; /* Center the nav links */
+    flex: 1;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333333; /* Dark gray */
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links a:hover {
+    color: #e1abc4; /* Soft pink */
+    border-bottom: 2px solid #ffb0c7; /* Underline effect */
+}
+
+.header-icons {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    top: 1rem; /* Adjust based on your design */
+    right: 2rem; /* Position them towards the right side */
+}
+
+.icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+    cursor: pointer;
+}
+/* Styles for the scroll buttons */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Updated styles for scrollable products */
+.image-slider {
+    display: flex;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    white-space: nowrap; /* Prevent wrapping */
+    padding: 1rem 0; /* Add some padding */
+    scrollbar-width: thin; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+.slider-container {
+    display: inline-flex;
+    gap: 1rem;
+    transition: transform 0.4s ease-in-out;
+}
+
+.image-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.product {
+    display: inline-block; /* Inline block to ensure horizontal alignment */
+    width: 200px; /* Fixed width for each product */
+    margin-right: -5rem 0 0.5rem 0; /* Spacing between products */
+    transition: transform 0.3s ease-in-out;
+    flex: 0 0 200px;
+    text-align: center;
+    font-family: 'Brandon Grotesque';
+    background-color: #ffffff;
+}
+.product a {
+    text-decoration: none;
+    color: inherit; /* Inherit colors from the parent element */
+}
+
+.product img {
+    width: 100%; /* Full width for each product image */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product.product:hover{
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.product-details {
+    padding: 0.5rem 0;
+    color: #333;
+}
+
+.product-name {
+    font-size: 1rem;
+    margin: 0.2rem 0;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #5e3647;
+}
+
+.product-rating {
+    color: #935f77; /* Soft pink color for stars */
+    font-size: 0.9rem;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+footer {
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark gray text */
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid #e0e0e0; /* Soft gray border on top */
+}
+
+.footer-content {
+    max-width: 1200px; /* Align with the main content width */
+    margin: 0 auto; /* Center align footer content */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-links li {
+    display: inline;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #333333; /* Dark gray text */
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Adjust font size */
+    }
+
+    .hero-text-container h1 {
+        font-size: 1.8rem; /* Smaller text for hero section */
+    }
+
+    .hero-text-container p {
+        font-size: 1rem;
+    }
+
+    .icon {
+        width: 20px; /* Reduce icon size */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisou Blush Cream - Demure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Futura+Light&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Futura Light', Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .header-logo {
+            font-family: 'Brandon Grotesque', sans-serif;
+            font-size: 1.5rem;
+            color: #000;
+            text-decoration: none;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header-actions a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .header-actions a:hover {
+            color: #9b1e46;
+        }
+        .search-bar {
+            position: relative;
+        }
+        .search-bar input {
+            padding: 5px 30px 5px 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .product-image {
+            flex: 1;
+            max-width: 600px;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+        }
+        .product-details {
+            flex: 1;
+            padding-top: 30px;
+        }
+        .product-title {
+            font-family: 'Playfair Display';
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .product-price {
+            font-family: 'Brandon Grotesque', sans-serif;
+            font-size: 1.8rem;
+            color: #000;
+            margin-bottom: 15px;
+        }
+        .product-types{
+            font-family: 'Brandon Grotesque 3';
+            font-size: 1rem;
+            color: #393939;
+        }
+        .product-big-types{
+            font-family: 'Brandon Grotesque Light';
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #5e5e5e;
+        }
+        .loyalty-points {
+            font-family: 'Garamond Medium', serif;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        hr {
+            border: 1.4px solid #191515;
+            margin: 20px 0;
+        }
+        .product-description {
+            font-family: 'Brandon Grotesque', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .add-to-cart-btn {
+            font-family: 'Brandon Grotesque', sans-serif;
+            background-color: #000;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #555;
+        }
+        .ratings {
+            font-family: 'Brandon Grotesque', sans-serif;
+            margin-bottom: 20px;
+        }
+        .ratings p {
+            font-size: 1rem;
+            color: #554e4e;
+        }
+        .color-choices {
+            margin-bottom: 30px;
+        }
+        .color-choices h2 {
+            font-family: 'Brandon Grotesque';
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 40%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: border 0.3s ease;
+        }
+        .color-option:hover {
+            border-color: #9b1e46;
+        }
+        .color-option.active {
+            border-color: #000;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="header-logo">Demure</a>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="button">🔍</button>
+            </div>
+            <a href="#" class="add-to-cart-btn">🛒</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Product Image Section -->
+        <div class="product-image">
+            <img id="productImage" src="image/BisouBalm_shade1.webp" alt="Bisou Balm Product Image">
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <h1 class="product-title">Bisou Balm Tinted Lip Balm</h1>
+            <p class="product-price">42 € / 7G</p>
+            <div class="ratings">
+                <p>★★★★☆ 4.7/5 (185 Avis)</p>
+            </div>
+            <p class="loyalty-points">Cult + 42 loyalty points</p>
+            <hr>
+            <div class="color-choices">
+                <h2>COLOUR:</h2>
+                <div class="color-options">
+                    <div class="color-option" data-image="image/BisouBalm_shade1.webp" style="background-color: #c15f5c;" title="Shade 1"></div>
+                    <div class="color-option" data-image="image/BisouBalm_Shade2.webp" style="background-color: #b71d53;" title="Shade 2"></div>
+                    <div class="color-option" data-image="image/Bisou_Balm.webp" style="background-color: #a72626;" title="Shade 3"></div>
+                    <div class="color-option" data-image="image/Bisou_Balm_Shade 4.webp" style="background-color: #7b1111;" title="Shade 4"></div>
+                </div>
+            </div>
+            <hr>
+            <p class="product-description">
+                This stick is both lipstick and balm, depositing a veil of colour with a matte finish for a sublime blurred effect. A real nugget that imitates the texture of the lips for an irresistible bitten-mouth effect.
+            </p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <hr>
+                <p class="product-big-types"><strong>SKIN TYPES:</strong></p>
+                <p class="product-types">All lip types.</p>
+                <p class="product-big-types"><strong>SKIN CONCERNS:</strong></p>
+                <p class="product-types">Sécheresse, Déshydratation</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all color options
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+                
+                // Add active class to the clicked color option
+                this.classList.add('active');
+                
+                // Update the product image
+                const newImageSrc = this.getAttribute('data-image');
+                document.getElementById('productImage').src = newImageSrc;
+            });
+        });
+    </script>
+
+</body>
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisou Blush Cream - Demure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Futura+Light&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Futura Light', Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .header-logo {
+            font-family: 'PlayfairDisplay-Italic', sans-serif;
+            font-size: 1.5rem;
+            color: #552f42;
+            text-decoration: none;
+            font-weight:  bold;
+        }
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .header-nav a {
+            font-family: 'Brandon Grotesque', sans-serif;
+            text-decoration: none;
+            color: #000;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        .header-nav a:hover {
+            color: #9b1e46;
+            border-bottom: 2px solid #ffc7d6;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header-actions a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .header-actions a:hover {
+            color: #9b1e46;
+        }
+
+        /* Search bar */
+        .search-bar {
+            position: relative;
+        }
+        .search-bar input {
+            padding: 5px 30px 5px 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #55555530;
+        }
+        .search-bar button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+        .search-bar button img {
+            width: 20px;
+            height: 20px;
+            margin: 0.3rem 0.4rem;
+        }
+        .search-bar button img:hover{
+            border-bottom: 2px solid #931a3d;
+        }
+
+        /* Cart icon */
+        .cart-icon img {
+            width: 25px;
+            height: 25px;
+        }
+        .cart-icon img:hover{
+            color: #9b1e46;
+            border-bottom: 2px solid #931a3d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .product-image {
+            flex: 1;
+            max-width: 600px;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+        }
+        .product-details {
+            flex: 1;
+            padding-top: 30px;
+        }
+        .product-title {
+            margin: 0;
+            font-family: 'PlayfairDisplay-Italic', sans-serif;
+            font-size: 2.2rem;
+            color: #29111b;
+        }
+        .product-price {
+            font-family: 'Brandon Grotesque', sans-serif;
+            font-size: 1rem;
+            color: #000000b5;
+            margin-bottom: 15px;
+        }
+        .product-types {
+            font-family: 'Brandon Grotesque', sans-serif;
+            font-size: 1rem;
+            color: #393939;
+        }
+        .product-big-types {
+            font-family: 'Brandon Grotesque Light';
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #5e5e5e;
+        }
+        .loyalty-points {
+            font-family: 'Garamond Medium', serif;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        hr {
+            border: 1.2px solid #191515;
+            margin: 20px 0;
+        }
+        .product-description {
+            font-family: 'Brandon Grotesque', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .add-to-cart-btn {
+            font-family: 'Brandon Grotesque', sans-serif;
+            background-color: #000;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #555;
+        }
+        .ratings {
+            font-family: 'Brandon Grotesque', sans-serif;
+            margin-bottom: 20px;
+        }
+        .ratings p {
+            font-size: 1rem;
+            color: #554e4e;
+        }
+        .color-choices {
+            margin-bottom: 30px;
+        }
+        .color-choices h2 {
+            font-family: 'Brandon Grotesque';
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 40%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: border 0.3s ease;
+        }
+        .color-option:hover {
+            border-color: #9b1e46;
+        }
+        .color-option.active {
+            border-color: #000;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="header-logo">Demure</a>
+        
+        <nav>
+            <ul class="header-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <!-- Search bar with chic icon -->
+            <form action="search-results.html" method="GET" class="search-bar">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit"><img src="search-icon.png" alt="Search Icon"></button>
+            </form>
+
+            <!-- Custom Cart Icon -->
+            <a href="cart.html" class="cart-icon"><img src="cart-icon.png" alt="Cart Icon"></a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Product Image Section -->
+        <div class="product-image">
+            <img id="productImage" src="image/BisouBalm_shade1.webp" alt="Bisou Balm Product Image">
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <h1 class="product-title">Bisou Balm Tinted Lip Balm</h1>
+            <p class="product-price">42 € | 7G</p>
+            <div class="ratings">
+                <p>★★★★☆ 4.7/5 (185 Avis)</p>
+            </div>
+            <hr>
+            <div class="color-choices">
+                <h2>COLOUR: </h2>
+                <div class="color-options">
+                    <div class="color-option" data-image="image/BisouBalm_shade1.webp" style="background-color: #c15f5c;" title="Shade 1"></div>
+                    <div class="color-option" data-image="image/BisouBalm_Shade2.webp" style="background-color: #b71d53;" title="Shade 2"></div>
+                    <div class="color-option" data-image="image/Bisou_Balm.webp" style="background-color: #a72626;" title="Shade 3"></div>
+                    <div class="color-option" data-image="image/Bisou_Balm_Shade 4.webp" style="background-color: #7b1111;" title="Shade 4"></div>
+                </div>
+            </div>
+            <hr>
+            <p class="product-description">
+                This stick is enriched with butter and plumping active ingredients, which instantly melt upon application and provide intense hydration.
+            </p>
+        </p>
+        <button class="add-to-cart-btn" onclick="window.location.href='cart.html';">Add to Cart</button>
+        <hr>
+        <p class="product-big-types"><strong>SKIN TYPES:</strong></p>
+        <p class="product-types">All types</p>
+        <p class="product-big-types"><strong>NEEDS:</strong></p>
+        <p class="product-types">Color / Make-up</p>
+        <p class="product-big-types"><strong>TEXTURES:</strong></p>
+        <p class="product-types">Stick</p>
+
+        </div>
+    </div>
+
+    <script>
+        // JS to update product image when color option is clicked
+        const colorOptions = document.querySelectorAll('.color-option');
+        const productImage = document.getElementById('productImage');
+
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function () {
+                const imageUrl = option.getAttribute('data-image');
+                productImage.src = imageUrl;
+
+                // Remove 'active' class from all options and add to clicked one
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
